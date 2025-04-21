@@ -1,0 +1,261 @@
+@font-face {
+    font-family: 'PixelFont';
+    src: url('fonts/dpcomic.ttf') format('truetype');
+}
+
+body {
+    font-family: 'PixelFont', sans-serif;
+    font-size:25px;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #12191A;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    /* Deshabilitar selección de texto */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+#titleImage {
+    width: auto;
+    height: 80px; /* Ajusta la altura según tu preferencia */
+}
+
+/* Evitar arrastrar imágenes */
+img {
+    pointer-events: none; /* Deshabilitar la interacción del puntero */
+}
+
+header {
+    width: 100%;
+    height: 300px; /* Ajusta la altura si es necesario */
+    background-image: url('images/mine_background.gif');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#titleImage {
+    width: auto;
+    height: 80px; /* Ajusta la altura según tu preferencia */
+}
+
+/* Mining Button */
+#mineButton {
+    scale:1.3;
+    width: 250px; /* Or whatever width you desire */
+    height: 250px; /* Or whatever height you desire */
+    border: none;
+    background-color: transparent;
+    background-size: contain; /* Or cover, depending on your preference */
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    color: white; /* Ensure text is visible */
+    font-family: 'PixelFont', sans-serif; /* Match the game's font */
+    text-align: center; /* Center the text */
+    display: flex; /* Use flexbox for vertical centering */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* center content horizontally */
+
+}
+
+/* Add the pressed animation */
+#mineButton:active {
+    transform: scale(0.95); /* Slightly smaller */
+}
+
+/* Bloqueo superpuesto */
+.lock-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    pointer-events: none;
+}
+
+.locked-zone {
+    position: relative;
+}
+
+.materials {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* Increased the number of columns to 8 */
+}
+
+footer .material {
+    position: relative;
+}
+
+
+
+.floating-mineral {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    animation: floatUp 1s ease-out forwards;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+    100% {
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+}
+
+.upgrades {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.upgrade-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upgrade-button {
+    width: 100px;
+    height: 100px;
+    border: none;
+    background-color: transparent;
+    background-size: contain; /* Change from cover to contain */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image within the button */
+    cursor: pointer;
+}
+
+.upgrade-button:hover {
+    transform: scale(1.05);
+}
+
+#upgradePickaxe { background-image: url('images/mejorar_pico.png'); }
+#hireWorker { background-image: url('images/añadir_trabajador.png'); }
+#upgradeInventory { background-image: url('images/mochila.png'); }
+#sellAll { background-image: url('images/sell.png'); }
+
+.materials {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* Increased the number of columns to 8 */
+}
+
+.material img {
+    width: 40px;
+}
+
+/* Inventory Bar Styles */
+#inventory-container {
+    width: 300px;
+    margin-top: 10px;
+}
+
+#inventory-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#inventory-progress {
+    height: 100%;
+    width: 0%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+
+.achievement-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #222;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fadeInOut 5s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
+}
+
+#achievements {
+    margin-top: 20px;
+}
+
+#achievements ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#achievements li.unlocked {
+    color: gold; /* Logro desbloqueado */
+}
+
+#achievements li.locked {
+    color: gray; /* Logro bloqueado */
+}
+
+.zones {
+    display: flex; /* Use flexbox to lay out the buttons horizontally */
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Vertically center items */
+    gap: 10px; /* Add some spacing between the buttons */
+    padding: 10px; /* Add some padding around the buttons */
+}
+
+.zone-button {
+    width: 200px; /* Or whatever width you desire */
+    height: 200px; /* Or whatever height you desire */
+    border: none;
+    background-color: transparent;
+    background-size: contain; /* Or cover, depending on your preference */
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    color: white; /* Ensure text is visible */
+    font-family: 'PixelFont', sans-serif; /* Match the game's font */
+    text-align: center; /* Center the text */
+    display: flex; /* Use flexbox for vertical centering */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* center content horizontally */
+
+}
+
+.zone-button:disabled {
+    opacity: 0.5; /* Indicate it's disabled */
+    cursor: not-allowed;
+}
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Clicker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/rubi.png" type="image/png">
+</head>
+<body>
+    <header>
+        <!-- Imagen del título -->
+        <img id="titleImage" src="images/titulo.png" alt="Mine Clicker">
+    </header>
+
+    <main>
+        <!-- Botón de minería -->
+        <div id="mineButton"></div>
+
+        <div class="game-info">
+            <p>💰 Dinero: $<span id="money">0.00</span></p>
+            <p>⚡ Multiplicador del Pico: <span id="pickaxeMultiplier">x1</span></p>
+            <p>👷 Mineros: <span id="workersElement">0</span></p>
+            <p>🌟 Nivel: <span id="levelElement">Nivel 1</span></p>
+
+            
+            <!-- Inventory Bar -->
+            <div id="inventory-container">
+                Inventario: <span id="currentInventory">0</span> / <span id="maxInventory">50</span>
+                <div id="inventory-bar">
+                    <div id="inventory-progress"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones de mejora -->
+        <div class="upgrades">
+            <div class="upgrade-container">
+                <button id="upgradePickaxe" class="upgrade-button" title="Mejorar Pico (+x0.5 materiales)"></button>
+                <p>Costo: $<span id="costPickaxe">1000</span></p>
+            </div>
+            <div class="upgrade-container">
+                <button id="hireWorker" class="upgrade-button" title="Contratar Minero (€0.5/30s)"></button>
+                <p>Costo: $<span id="costWorker">5000</span></p>
+            </div>
+            <div class="upgrade-container">
+                <button id="upgradeInventory" class="upgrade-button" title="Ampliar Mochila (+10 capacidad)"></button>
+                <p>Costo: $<span id="costInventory">2500</span></p>
+            </div>
+            <div class="upgrade-container">
+            <button id="sellAll" class="upgrade-button" title="Vender Todo el Inventario"></button>
+            <p>Vender todo.</p>
+        </div>
+        </div>
+
+        <!-- Zonas -->
+        <div class="zones">
+            <p><button id="zone1" class="zone-button" disabled style="background-image: url('images/mina1.png');">Mina Nivel 1 (Desbloqueada)</button></p>
+            <p><button id="zone2" class="zone-button" style="background-image: url('images/mina2.png');">Mina Nivel 2 (Costo: $500)</button></p>
+            <p><button id="zone3" class="zone-button" style="background-image: url('images/mina3.png');">Mina Nivel 3 (Costo: $10000)</button></p>
+        </div>
+        <br><br>
+    </main>
+
+    <!-- Materiales -->
+    <footer class="materials">
+        <!-- Mina Básica -->
+        <div class="material">
+            <img src="images/piedra.png" alt="Piedra">
+            <span id="piedraCount">0</span>
+        </div>
+        <div class="material">
+            <img src="images/carbon.png" alt="Carbon">
+            <span id="carbonCount">0</span>
+        </div>
+        <div class="material">
+            <img src="images/cobre.png" alt="Cobre">
+            <span id="cobreCount">0</span>
+        </div>
+
+        <!-- Mina de Hielo -->
+        <div class="material locked-zone" data-zone-unlocked="false" data-zone-id="zone2">
+            <img src="images/hierro.png" alt="hierro">
+             <img src="images/lock.png" alt="" class="lock-icon">
+            <span id="hierroCount">0</span>
+        </div>
+        <div class="material locked-zone" data-zone-unlocked="false" data-zone-id="zone2">
+            <img src="images/oro.png" alt="Oro">
+             <img src="images/lock.png" alt="" class="lock-icon">
+            <span id="oroCount">0</span>
+        </div>
+        <div class="material locked-zone" data-zone-unlocked="false" data-zone-id="zone2">
+            <img src="images/esmeralda.png" alt="Esmeralda">
+            <img src="images/lock.png" alt="" class="lock-icon">
+            <span id="esmeraldaCount">0</span>
+        </div>
+
+        <!-- Mina Volcánica -->
+         <div class="material locked-zone" data-zone-unlocked="false" data-zone-id="zone3">
+            <img src="images/diamante.png" alt="Diamante">
+             <img src="images/lock.png" alt="" class="lock-icon">
+            <span id="diamanteCount">0</span>
+        </div>
+        <div class="material locked-zone" data-zone-unlocked="false" data-zone-id="zone3">
+            <img src="images/rubi.png" alt="Rubi">
+             <img src="images/lock.png" alt="" class="lock-icon">
+            <span id="rubiCount">0</span>
+        </div>
+        
+    </footer>
+
+    <!-- Enlace al script -->
+    <script src="./script.js"></script>
+</body>
+</html>
