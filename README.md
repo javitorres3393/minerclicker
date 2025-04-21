@@ -1,0 +1,2 @@
+# minerclicker
+demo game
